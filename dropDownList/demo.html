@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/dropDownList.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/bb-dropDwonList.js"></script>
+    <style>
+    body {
+        margin-bottom: 50px;
+    }
+    h2 {
+        font-size: 16px;
+        padding: 20px;
+    }
+    
+    .combox {
+        width: 200px;
+        height: 30px;
+        margin: 0 20px;
+    }
+    
+    .fix-history {}
+    
+    .fix-history li {
+        padding: 5px 10px;
+    }
+   /*  .cs{
+      height: 500px;
+   } */
+    </style>
+</head>
+
+<body>
+    <div class="cs"></div>
+    <h2>*普通下拉框</h2>
+    <div id="demo1" class="combox"></div>
+    <h2>*可输入下拉框</h2>
+    <div id="demo2" class="combox"></div>
+    <button id="set1">赋值</button>
+    <button id="get1">取值</button>
+    <h2>*可输入联想下拉框</h2>
+    <div id="demo3" class="combox"></div>
+    <button id="set2">赋值</button>
+    <button id="get2">取值</button>
+    <h2>新增（2018.1.22）</h2>
+    <ul class="fix-history">
+        <li>*支持placeholder提示信息</li>
+        <li>*支持可输入下拉联想(同步)</li>
+        <li>*支持鼠标上下键选择下拉项</li>
+        <li>*支持回显，支持可输入下拉框回显</li>
+        <li>*提供getData方法，返回下拉数据</li>
+        <li>*优化了下拉框的位置，如果底部不够，那么会提示在上方</li>
+    </ul>
+    <h2>修复（2018.1.22）</h2>
+    <ul class="fix-history">
+        <li>*修复了非下拉框选项的取值错误bug</li>
+        <li>*修复了上下键选择和默认回显定位不准确的bug</li>
+        <li>*修复了IE8无法点击、滚动隐藏下拉框的bug</li>
+        <li>*修复了IE8禁用的bug</li>
+        <li>*修正了模糊搜索后数据未初始化的bug</li>
+    </ul>
+</body>
+<script>
+/*var mockData = [{
+    text: 'cs-1',
+    value: '001'
+}, {
+    text: 'cs-2',
+    value: '002'
+}]*/
+var mockData = [];
+for (var i = 0; i < 20; i++) {
+    mockData.push({
+        text: 'cs' + (i + 1),
+        value: '00' + (i + 1)
+    })
+}
+
+$('#demo1').dropDwonList({
+    data: mockData, // 数据
+    tips: '请选择', // 提示信息
+    editAble: false, // 是不是可以编辑，默认false
+    ok: function(params) {}
+});
+
+var d1 = $('#demo2').dropDwonList({
+    data: mockData, // 数据
+    tips: '请输入', // 提示信息
+    editAble: true, // 是不是可以编辑，默认false
+    associate: false, // 是否开启联想功能， 当editAble为true生效
+    ok: function(params) {
+        //console.log(d1.getData());
+    }
+});
+
+var d2 = $('#demo3').dropDwonList({
+    data: mockData, // 数据
+    tips: '请输入', // 提示信息
+    editAble: true, // 是不是可以编辑
+    associate: true, // 是否开启联想功能， 当editAble为true生效
+    ok: function(params) {
+        //console.log(d2.getData());
+    }
+});
+
+$('#set1').click(function() {
+    d1.setData({
+        text: '测试'
+    });
+})
+
+$('#set2').click(function() {
+    d2.setData({
+        value: '0014'
+    });
+})
+
+$('#get1').click(function() {
+    console.log(d1.getData());
+})
+
+$('#get2').click(function() {
+
+    console.log(d2.getData());
+})
+</script>
+
+</html>

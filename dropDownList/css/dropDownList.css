@@ -1,0 +1,131 @@
+body,html{
+    height: 100%;
+}
+body, div, p,
+dl, dt, dd, ul, ol,li,
+h1, h2, h3, h4, h5, h6, 
+form {
+    margin: 0;
+    padding: 0;
+}
+input{
+    outline: none;
+}
+.hide{
+    display: none;
+}
+*{
+   box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+.ell{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    white-space: nowrap;
+}
+input[disabled],
+input[readonly]{
+    opacity:1;
+    background-color: inherit;
+    color:#333;
+}{
+    opacity:1;
+    background-color: inherit;
+    color:#333;
+}
+
+.empty-data-li{
+    padding: 10px 0;
+    font-size: 12px;
+    text-align: center;
+}
+/* --- */
+.combox {
+    display: inline-block;
+    width: 210px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.combox .combox-input {
+    display: block;
+    height: 28px;
+   line-height: 28px;
+   /*  padding: 4px 0; */
+    width: 100%;
+    border-radius: 3px 0 0 3px;
+    text-indent: .33em;
+    font-size: 14px;
+    border: none;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.combox .combox-input-wrap {
+    height: 32px;
+    display: block;
+    padding-right: 28px;
+    cursor: pointer;
+}
+
+.combox .combox-select {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 1px solid;
+    border-color: #ddd;
+    width: 28px;
+    height: 100%;
+    text-align: center;
+    /* line-height: 2.4em; */
+    cursor: pointer;
+}
+
+.combox .combox-triangle-down {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: url(../img/arrow-down.png) center  no-repeat;
+}
+
+.combox-list {
+    display: none;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1002;
+    width: 100px;
+    max-height: 210px;
+    overflow-y: auto;
+    border: 1px #c5c5c5 solid;
+    /* border-top: none; */
+    background: #fff;
+}
+
+.combox-list li {
+    padding: 0 4px;
+    border-radius: 3px;
+    line-height: 1.8em;
+    min-height: 1.8em;
+    cursor: default;
+    border: 1px #fff solid;
+    cursor: pointer;
+}
+
+.combox-list li:hover {
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px #e0e0e0 solid;
+}
+
+.combox-list li.selected {
+    background-color: #337ab7;
+    border: 1px #337ab7 solid;
+    color: #fff;
+}
